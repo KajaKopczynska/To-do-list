@@ -19,7 +19,7 @@
     const bindRemoveEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
-        removeButtons.firEach((removeButton, taskIndex) => {
+        removeButtons.forEach((removeButton, taskIndex) => {
             removeButton.addEventListener("click", () => {
                 removeTask(taskIndex);
             });
@@ -66,11 +66,11 @@
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const newTaskElement = document.querySelector(".jes-newTask");
-        const newTaskContent = newTaskElement.ariaValueMax.trim()
+        const newTaskElement = document.querySelector(".js-newTask");
+        const newTaskContent = newTaskElement.value.trim();
 
         if (newTaskContent !== "") {
-            addNewTask(newTaskContent)
+            addNewTask(newTaskContent);
             newTaskElement.value = "";
         }
 
