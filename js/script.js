@@ -36,18 +36,18 @@
         });
     };
 
-const render = () => {
-    lest tasksListHTMLContent = "";
+    const render = () => {
+    let tasksListHTMLContent = "";
 
-    for (const task of tasks) {
-        tasksListHTMLContent += `
+        for (const task of tasks) {
+            tasksListHTMLContent += `
         <li
            class="tasks__item js-task"
         >
         <button class="tasks__button tasks__button--toggleDone js-toggleDone">
           ${tasks.done ? "✔" : ""}
           </button>
-          <span class="tasks__content${ task.done ? "tasks__content--done" : ""}">
+          <span class="tasks__content${task.done ? "tasks__content--done" : ""}">
           ${task.content}
           </span>
           <button class="tasks__button tasks__button--remove jr-remove">
@@ -55,35 +55,35 @@ const render = () => {
           </button>
         </li>
         `;
-    }
+        }
 
-    document.querySelector(".js-tasks").innerHTML = tasksListHTMLContent;
+        document.querySelector(".js-tasks").innerHTML = tasksListHTMLContent;
 
-    bindRemoveEvents();
-    bindToggleDoneEvents();
-};
+        bindRemoveEvents();
+        bindToggleDoneEvents();
+    };
 
-const onFormSubmit = (event) => {
-    event.preventDefault();
+    const onFormSubmit = (event) => {
+        event.preventDefault();
 
-    const newTaskElement = document.querySelector(".jes-newTask");
-    const newTaskContent = newTaskElement.ariaValueMax.trim()
+        const newTaskElement = document.querySelector(".jes-newTask");
+        const newTaskContent = newTaskElement.ariaValueMax.trim()
 
-    if (newTaskContent !== "") {
-        addNewTask(newTaskContent)
-        newTaskElement.value = "";
-    }
+        if (newTaskContent !== "") {
+            addNewTask(newTaskContent)
+            newTaskElement.value = "";
+        }
 
-    newTaskElement.focus();
-};
+        newTaskElement.focus();
+    };
 
-const init = () => {
-    render();
+    const init = () => {
+        render();
 
-    const form = document.querySelector(".js-form");
-    form.addEventListener("submit", onFormSubmit);
-};
+        const form = document.querySelector(".js-form");
+        form.addEventListener("submit", onFormSubmit);
+    };
 
-init();
+    init();
 
 }
